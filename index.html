@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration – Master SSB</title>
+
+  <!-- Apply saved theme + language before first paint (avoids a light/EN flash) -->
+  <script>
+    (function () {
+      var r = document.documentElement;
+      try {
+        if (localStorage.getItem("theme") === "dark") r.classList.add("dark-mode");
+        var l = localStorage.getItem("lang");
+        if (!l) l = (navigator.language || "").toLowerCase().indexOf("fr") === 0 ? "fr" : "en";
+        r.setAttribute("data-lang", l === "fr" ? "fr" : "en");
+        r.setAttribute("lang", l === "fr" ? "fr" : "en");
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta name="theme-color" content="#003366" />
+  <link rel="icon" href="assets/img/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192.png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <nav>
+    <!-- Change ../index.html to the real address of the main Master SSB site -->
+    <a href="#" id="master-website-logo" class="logo-container" aria-label="Master SSB">
+      <img src="assets/img/logo.png" alt="Logo Master SSB" class="nav-logo" />
+      <span>Master SSB</span>
+    </a>
+
+    <ul class="nav-links">
+      <li>
+        <a href="#" id="master-website-link">
+          <span class="lang-en">Master website</span>
+          <span class="lang-fr">Site du Master</span>
+        </a>
+      </li>
+      <li>
+        <a href="index.html" aria-current="page">
+          <span class="lang-en">Registration</span>
+          <span class="lang-fr">Inscription</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="nav-buttons">
+      <button type="button" class="lang-btn" id="theme-btn">
+        <span id="theme-text">Dark</span> <i class="fas fa-moon" id="theme-icon" aria-hidden="true"></i>
+      </button>
+      <button type="button" class="lang-btn" id="lang-btn">
+        <span id="lang-text">FR</span> <i class="fas fa-globe" aria-hidden="true"></i>
+      </button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>
+        <span class="lang-en">Registration</span>
+        <span class="lang-fr">Inscription</span>
+      </h1>
+      <h2>
+        <span class="lang-en">Master of Health Sciences and BioTechnologies</span>
+        <span class="lang-fr">Master Sciences de la Santé et BioTechnologies</span>
+      </h2>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Registration form -->
+    <div class="card" id="form-view">
+      <div class="eyebrow-bar"></div>
+      <h2 class="title">
+        <span class="lang-en">Your information</span>
+        <span class="lang-fr">Vos informations</span>
+      </h2>
+      <p class="subtitle">
+        <span class="lang-en">Please complete the fields below. Fields marked with <span class="required">*</span> are required.</span>
+        <span class="lang-fr">Merci de compléter les informations ci-dessous. Les champs marqués d'un <span class="required">*</span> sont obligatoires.</span>
+      </p>
+
+      <form id="registration-form" novalidate>
+        <div class="form-row">
+          <div class="field" id="field-firstName">
+            <label for="firstName">
+              <span class="lang-en">First name</span><span class="lang-fr">Prénom</span>
+              <span class="required">*</span>
+            </label>
+            <input id="firstName" name="firstName" autocomplete="given-name" />
+            <div class="error-text" id="error-firstName" role="alert"></div>
+          </div>
+          <div class="field" id="field-familyName">
+            <label for="familyName">
+              <span class="lang-en">Family name</span><span class="lang-fr">Nom</span>
+              <span class="required">*</span>
+            </label>
+            <input id="familyName" name="familyName" autocomplete="family-name" />
+            <div class="error-text" id="error-familyName" role="alert"></div>
+          </div>
+        </div>
+
+        <div class="field" id="field-email">
+          <label for="email">
+            <span class="lang-en">Email</span><span class="lang-fr">E-mail</span>
+            <span class="required">*</span>
+          </label>
+          <input id="email" name="email" type="email" placeholder="student@example.com" autocomplete="email" />
+          <div class="error-text" id="error-email" role="alert"></div>
+        </div>
+
+        <div class="form-row">
+          <div class="field" id="field-niveau">
+            <label for="niveau">
+              <span class="lang-en">Study level</span><span class="lang-fr">Niveau d'étude</span>
+              <span class="required">*</span>
+            </label>
+            <select id="niveau" name="niveau">
+              <option value="" disabled selected>Select…</option>
+            </select>
+            <div class="error-text" id="error-niveau" role="alert"></div>
+          </div>
+          <div class="field" id="field-filiere">
+            <label for="filiere">
+              <span class="lang-en">Field of study</span><span class="lang-fr">Filière</span>
+              <span class="required">*</span>
+            </label>
+            <select id="filiere" name="filiere">
+              <option value="" disabled selected>Select…</option>
+            </select>
+            <div class="error-text" id="error-filiere" role="alert"></div>
+          </div>
+        </div>
+
+        <div class="field" id="field-cne">
+          <label for="cne">CNE <span class="required">*</span></label>
+          <input id="cne" name="cne" />
+          <div class="error-text" id="error-cne" role="alert"></div>
+        </div>
+
+        <div class="banner-error" id="server-error" style="display: none" role="alert"></div>
+
+        <button type="submit" class="btn-submit" id="submit-btn">
+          <span id="submit-label" data-i18n="submit">Register</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Success view -->
+    <div class="card" id="success-view" style="display: none; text-align: center">
+      <div class="check-circle" aria-hidden="true">✓</div>
+      <h2 class="success-title">
+        <span class="lang-en">Registration complete</span>
+        <span class="lang-fr">Inscription réussie</span>
+      </h2>
+      <p class="muted" style="margin-top: 0.75rem">
+        <span class="lang-en">Your registration has been saved successfully.</span>
+        <span class="lang-fr">Votre inscription a été enregistrée avec succès.</span>
+      </p>
+      <button type="button" class="btn-submit btn-inline" style="margin-top: 2rem; max-width: 300px" id="restart-btn">
+        <span class="lang-en">Register another person</span>
+        <span class="lang-fr">Inscrire une autre personne</span>
+      </button>
+    </div>
+  </main>
+
+  <footer class="footer-section" id="contact">
+    <h2 class="section-title">
+      <span class="lang-en">Stay Connected</span>
+      <span class="lang-fr">Restez Connectés</span>
+    </h2>
+    <p>
+      <span class="lang-en">For more information, contact us or follow our social networks.</span>
+      <span class="lang-fr">Pour plus d'informations, contactez-nous ou suivez nos réseaux.</span>
+    </p>
+
+    <div class="social-links">
+      <a href="https://www.linkedin.com/company/master-sciences-de-la-sant%C3%A9-et-biotechnologies-fsac/" target="_blank" rel="noopener" class="social-btn linkedin">
+        <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+      </a>
+      <a href="https://www.instagram.com/master_ssb_fsac/" target="_blank" rel="noopener" class="social-btn instagram">
+        <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
+      </a>
+      <a href="https://discord.gg/KPh8cdHZYS" target="_blank" rel="noopener" class="social-btn discord">
+        <i class="fab fa-discord" aria-hidden="true"></i> Discord
+      </a>
+      <a href="mailto:masterinternational405@gmail.com" class="social-btn email">
+        <i class="fas fa-envelope" aria-hidden="true"></i> Email
+      </a>
+      <a href="https://fsac.univh2c.ma/front/index.html" target="_blank" rel="noopener" class="social-btn">
+        <i class="fas fa-graduation-cap" aria-hidden="true"></i> FSAC
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year">2026</span> Master Sciences de la Santé et BioTechnologies. FSAC - UH2C.</p>
+    </div>
+  </footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/config.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("master-website-logo").href = MASTER_WEBSITE_URL;
+    document.getElementById("master-website-link").href = MASTER_WEBSITE_URL;
+  });
+</script>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/register.js"></script>
+</body>
+</html>
