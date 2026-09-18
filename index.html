@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inscription</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <main class="page">
+    <!-- Registration form -->
+    <div class="card" id="form-view">
+      <div class="eyebrow-bar"></div>
+      <h1 class="title">Formulaire d'inscription</h1>
+      <p class="subtitle">
+        Merci de compléter les informations ci-dessous. Les champs marqués
+        d'un <span class="required">*</span> sont obligatoires.
+      </p>
+
+      <form id="registration-form" novalidate>
+        <div class="form-row">
+          <div class="field" id="field-firstName">
+            <label for="firstName">First Name / Prénom <span class="required">*</span></label>
+            <input id="firstName" name="firstName" autocomplete="given-name" />
+            <div class="error-text" id="error-firstName"></div>
+          </div>
+          <div class="field" id="field-familyName">
+            <label for="familyName">Family Name / Nom <span class="required">*</span></label>
+            <input id="familyName" name="familyName" autocomplete="family-name" />
+            <div class="error-text" id="error-familyName"></div>
+          </div>
+        </div>
+
+        <div class="field" id="field-email">
+          <label for="email">E-mail <span class="required">*</span></label>
+          <input id="email" name="email" type="email" placeholder="student@example.com" autocomplete="email" />
+          <div class="error-text" id="error-email"></div>
+        </div>
+
+        <div class="form-row">
+          <div class="field" id="field-niveau">
+            <label for="niveau">Niveau d'étude <span class="required">*</span></label>
+            <select id="niveau" name="niveau">
+              <option value="" disabled selected>Sélectionner...</option>
+            </select>
+            <div class="error-text" id="error-niveau"></div>
+          </div>
+          <div class="field" id="field-filiere">
+            <label for="filiere">Filière <span class="required">*</span></label>
+            <select id="filiere" name="filiere">
+              <option value="" disabled selected>Sélectionner...</option>
+            </select>
+            <div class="error-text" id="error-filiere"></div>
+          </div>
+        </div>
+
+        <div class="field" id="field-cne">
+          <label for="cne">CNE <span class="required">*</span></label>
+          <input id="cne" name="cne" />
+          <div class="error-text" id="error-cne"></div>
+        </div>
+
+        <div class="banner-error" id="server-error" style="display: none"></div>
+
+        <button type="submit" class="btn-submit" id="submit-btn">S'inscrire</button>
+      </form>
+    </div>
+
+    <!-- Success view -->
+    <div class="card" id="success-view" style="display: none; text-align: center">
+      <div class="check-circle">✓</div>
+      <h1 style="font-size: 1.7rem; margin-top: 1.25rem">Inscription réussie</h1>
+      <p class="muted" style="margin-top: 0.75rem">
+        Votre inscription a été enregistrée avec succès.
+      </p>
+      <button class="btn-submit" style="margin-top: 2rem; max-width: 260px" id="restart-btn">
+        Inscrire une autre personne
+      </button>
+    </div>
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/register.js"></script>
+</body>
+</html>
